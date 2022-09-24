@@ -61,7 +61,7 @@ struct test_struct* add_to_list(int val, bool add_to_end)
     return ptr;
 }
 
-// *prev is "passed by reference", d.h. wir können das 
+// *prev is "passed by reference using pointers", d.h. wir können das 
 // original *prev aus delete_from_list hier 
 // in search_in_list ändern und die Änderung bleibt nach
 // Rückkehr zu delete_from_list erhalten! (s. "passing_by_reference.c")
