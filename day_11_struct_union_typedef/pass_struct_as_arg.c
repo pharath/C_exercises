@@ -27,7 +27,7 @@ int main( void )
     scanf("%f", &rec.amount);
 
     /* Call the display function. */
-    print_rec( rec );
+    print_rec( rec );   // "isn't very different from passing a simple variable"
 
     return 0;
 }

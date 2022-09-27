@@ -1,0 +1,37 @@
+# C Basics
+
+- Day 9 - Pointers (Basics)
+  - size of pointers (sizeof_ptr.c)
+  - passing function arguments
+    - passing by value (passing_by_value.c)
+    - passing by reference (C style) (passing_by_reference.c)
+    - passing as reference (C++ style) (passing_as_reference.cpp)
+  - returning multiple values from a function (C style) (return_multiple_val.c)
+  - returning multiple values from a function (C++ style) (return_multiple_val_cpp.cpp)
+  - pointer arithmetic (ptr_arithmetic.c)
+- Day 10 - characters and strings
+  - numeric nature of `char`s (numeric_nature_of_char.c)
+  - strings without arrays
+    - use of `malloc()` to allocate storage space for strings (memalloc.c)
+  - `put()` function (put.c)
+  - `strcpy()` function (strcpy.c)
+  - `gets()` function (gets.c)
+    - using the `gets()` return value to test for a blank line (gets_return_val.c)
+  - `fgets()` function (fgets.c)
+- Day 11 - structures and unions
+  - creating a struct (struct.c)
+  - creating a struct that contains other structs (struct_in_struct.c)
+  - array of structs
+    - creating an array of structs (array_of_structs.c)
+  - structs and pointers
+    - pointers to structs
+      - accessing struct members using pointers (by programiz.com) (access_struct_members_using_pointer.c)
+    - pointers and array of structs
+      - step through array of structs using pointers (step_through_array_of_structs_using_ptr.c)
+  - passing a struct as an argument to a function (pass_struct_as_arg.c)
+- Day 15 - Pointers (Advanced), Linked Lists
+  - linked lists (linked_list_phth.c)
+- Day 20 - Memory
+  - check available memory using `malloc()` (avail_mem_malloc.c)
+  - check available memory using `calloc()` (calloc.c)
+  - using `realloc()` to increase the size of a block of dynamically allocated memory (realloc.c)

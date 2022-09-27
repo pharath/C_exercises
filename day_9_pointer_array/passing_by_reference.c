@@ -1,6 +1,6 @@
 //adapted from "C++ in 21 days"
 //Listing 9.6 Demonstrates passing by reference
-//in C gibt es keine references ! Trotzdem sagt man colloquially "pass by reference".
+//in C gibt es keine references wie in passing_as_reference.cpp ! Trotzdem sagt man colloquially "pass by reference".
 #include <stdio.h>
 
 void swap(int *x, int *y);
