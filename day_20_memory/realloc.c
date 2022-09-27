@@ -31,7 +31,7 @@ int main( void )
     /* Increase the allocation, then concatenate the string to it. */
 
     message = realloc(message,(strlen(message) + strlen(buf)+1));
-    strcat(message, buf);
+    strcat(message, buf);   // return value of strcat() is a pointer to str1 (see day 17)
 
     /* Display the new message. */
     puts(message);
