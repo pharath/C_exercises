@@ -35,3 +35,9 @@
   - check available memory using `malloc()` (avail_mem_malloc.c)
   - check available memory using `calloc()` (calloc.c)
   - using `realloc()` to increase the size of a block of dynamically allocated memory (realloc.c)
+  - releasing memory with the `free()` Function (free.c)
+  - manipulating memory blocks `memset()`, `memcpy()`, `memmove()` (memset_cpy_move.c)
+- Time
+  - UNIX Time, POSIX Time, UNIX Epoch Time `time()` (time.c)
+  - Windows Time (Windows_GetSystemTime.c)
+  - get a human-readable version of the current local time (ctime.c)
