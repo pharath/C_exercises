@@ -1,4 +1,5 @@
 /* get a human-readable version of the current local time */
+
 /* Warning: ctime() and asctime() share the array which holds the 
 time string, i.e. if either one of these functions is called, 
 the content of the array is overwritten */

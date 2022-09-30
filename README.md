@@ -39,5 +39,11 @@
   - manipulating memory blocks `memset()`, `memcpy()`, `memmove()` (memset_cpy_move.c)
 - Time
   - UNIX Time, POSIX Time, UNIX Epoch Time `time()` (time.c)
-  - Windows Time (Windows_GetSystemTime.c)
-  - get a human-readable version of the current local time (ctime.c)
+  - Windows Time `GetSystemTime()` (Windows_GetSystemTime.c)
+  - get a human-readable version of the current local time, `ctime()` (ctime.c)
+  - converting time: tm to time_t `mktime()` (mktime.c)
+  - measure the performance time of a certain part of code `difftime()` (difftime.c)
+  - working with different timezones using `gmtime()` (gmtime.c)
+  - count clock ticks elapsed since the start of the program using `clock()` (clock.c)
+- Pseudo-random numbers
+  - Usage of `rand()` function (rand.c)
