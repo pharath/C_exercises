@@ -31,21 +31,29 @@
   - passing a struct as an argument to a function (pass_struct_as_arg.c)
 - Day 15 - Pointers (Advanced), Linked Lists
   - linked lists (linked_list_phth.c)
-- Day 19 - Time
-  - UNIX Time, POSIX Time, UNIX Epoch Time `time()` (time.c)
-  - Windows Time `GetSystemTime()` (Windows_GetSystemTime.c)
-  - get a human-readable version of the current local time, `ctime()` (ctime.c)
-  - converting time: tm to time_t `mktime()` (mktime.c)
-  - measure the performance time of a certain part of code `difftime()` (difftime.c)
-  - working with different timezones using `gmtime()` (gmtime.c)
-  - count clock ticks elapsed since the start of the program using `clock()` (clock.c)
-  - `clock()` vs `time()` (clock_vs_time.c)
-  - summary of most important time functions (all_time_functions.c)
+- Day 19 - Time, Mathematical Functions, Random Numbers, Error-Handling
+  - Time
+    - UNIX Time, POSIX Time, UNIX Epoch Time `time()` (time.c)
+    - Windows Time `GetSystemTime()` (Windows_GetSystemTime.c)
+    - get a human-readable version of the current local time, `ctime()` (ctime.c)
+    - converting time: tm to time_t `mktime()` (mktime.c)
+    - measure the performance time of a certain part of code `difftime()` (difftime.c)
+    - working with different timezones using `gmtime()` (gmtime.c)
+    - count clock ticks elapsed since the start of the program using `clock()` (clock.c)
+    - `clock()` vs `time()` (clock_vs_time.c)
+    - summary of most important time functions (all_time_functions.c)
+  - Pseudo-random numbers
+    - Usage of `rand()` function (rand.c)
 - Day 20 - Memory
   - check available memory using `malloc()` (avail_mem_malloc.c)
   - check available memory using `calloc()` (calloc.c)
   - using `realloc()` to increase the size of a block of dynamically allocated memory (realloc.c)
   - releasing memory with the `free()` Function (free.c)
   - manipulating memory blocks `memset()`, `memcpy()`, `memmove()` (memset_cpy_move.c)
-- Pseudo-random numbers
-  - Usage of `rand()` function (rand.c)
+
+## References
+
+- Bradley L. Jones, Peter Aitken - Sams Teach Yourself C in 21 Days -Sams (2002)
+- https://www.programiz.com/
+- https://www.tutorialspoint.com/c_standard_library/
+- https://stackoverflow.com/questions/
