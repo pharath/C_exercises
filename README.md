@@ -47,6 +47,8 @@
   - Pseudo-random numbers
     - Usage of `rand()` function (rand.c)
 - Day 20 - Memory
+  - void pointer 1 (implicit_conv_void_pointer.c)
+  - void pointer 2 (void_pointer.c)
   - check available memory using `malloc()` (avail_mem_malloc.c)
   - check available memory using `calloc()` (calloc.c)
   - using `realloc()` to increase the size of a block of dynamically allocated memory (realloc.c)

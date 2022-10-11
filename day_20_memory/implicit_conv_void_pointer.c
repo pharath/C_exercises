@@ -20,4 +20,6 @@ int main()
     printf("%d\n", * (int*)vp);
     
     free(vp);
+
+    return 0;
 }
