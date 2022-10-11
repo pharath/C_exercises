@@ -29,6 +29,8 @@
     - pointers and array of structs
       - step through array of structs using pointers (step_through_array_of_structs_using_ptr.c)
   - passing a struct as an argument to a function (pass_struct_as_arg.c)
+- Day 12 - variable scope
+  - `auto` and `static` local variables (static.c)
 - Day 15 - Pointers (Advanced), Linked Lists
   - linked lists (linked_list_phth.c)
 - Day 19 - Time, Mathematical Functions, Random Numbers, Error-Handling

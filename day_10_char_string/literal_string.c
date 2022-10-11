@@ -2,7 +2,7 @@
 
 int main()
 {
-    // A literal string evaluates as a ptr to a string.
+    // A string literal evaluates as a ptr-to-character ( char* ).
     // I.e. "hello world" is a ptr!
     // Therefore, puts() can be used to display literal strings.
     puts("hello world");
