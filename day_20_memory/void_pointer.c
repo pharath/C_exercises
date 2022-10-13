@@ -26,12 +26,12 @@ int main()
     vp = ip; // ok
     printf("%d\n", * (int*)vp);
     vp = fp; // ok
-    printf("%f\n", * (float*)vp);
+    printf("%.2f\n", * (float*)vp);
     vp = cp; // ok
     printf("%c\n", * (char*)vp);
 
-    // ip = &f; // wrong since type of ip is pointer to int
-    // fp = ip; // wrong since type of fp is pointer to float
+    // ip = &f; // wrong since type of ip is pointer-to-int
+    // fp = ip; // wrong since type of fp is pointer-to-float
 
     return 0;
 }

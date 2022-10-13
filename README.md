@@ -46,14 +46,18 @@
     - summary of most important time functions (all_time_functions.c)
   - Pseudo-random numbers
     - Usage of `rand()` function (rand.c)
-- Day 20 - Memory
-  - void pointer 1 (implicit_conv_void_pointer.c)
-  - void pointer 2 (void_pointer.c)
+- Day 20 - Memory, Promotion, Casts
+  - Casting Pointers
+    - void pointer: cast before dereferencing (implicit_conv_void_pointer.c)
+    - void pointer: A void pointer can point to objects of any data type (void_pointer.c)
+    - void pointer: pointer arithmetic (void_ptr_arith.c)
+    - void pointer: most common use of void pointers (void_ptr_most_common_use.c)
   - check available memory using `malloc()` (avail_mem_malloc.c)
   - check available memory using `calloc()` (calloc.c)
   - using `realloc()` to increase the size of a block of dynamically allocated memory (realloc.c)
   - releasing memory with the `free()` Function (free.c)
   - manipulating memory blocks `memset()`, `memcpy()`, `memmove()` (memset_cpy_move.c)
+  - (setrlimit.c)
 
 ## References
 
