@@ -9,7 +9,8 @@
 
 struct kilo {
 	struct kilo *next;	// for a 64 bit computer the pointer size is 8 bytes 
-	char dummy[1016];
+	// char dummy[1016];
+	char dummy[992];
 };
 
 int FreeMem(void);
@@ -19,19 +20,32 @@ int main( int argc, char *argv[] )
 {
 	/* phth start: */
 	/* explanation: see setrlimit.c */
-	struct rlimit lim = {1, 1};
+	
+	struct rlimit lim = {3 * 1000 * 1000, RLIM_INFINITY};
+	// /* alternatively, using the rlim_cur element of the rlimit structure lim: */
+	// struct rlimit lim;
+	// lim.rlim_cur = 3 * 1000 * 1000;
+	// lim.rlim_max = RLIM_INFINITY;
+	
+	struct rlimit old_lim, new_lim;
 
-	if (argc > 1 && argv[1][0] == '-' && argv[1][1]=='l') {
-			printf("limiting stack size\n");
-			if (setrlimit(RLIMIT_STACK, &lim) == -1) {
-					printf("rlimit failed\n");
-					return 1;
-			}
-			printf("limiting heap size\n");
-			if (setrlimit(RLIMIT_DATA, &lim) == -1) {
-					printf("rlimit failed\n");
-					return 1;
-			}
+	if (argc > 1 && argv[1][0] == '-' && argv[1][1]=='l') 
+	{
+		printf("limiting virtual mem size\n");
+		
+		getrlimit(RLIMIT_AS, &old_lim);
+		printf("old_lim (hard): %ld\n", old_lim.rlim_max);
+		printf("old_lim (soft): %ld\n", old_lim.rlim_cur);
+		
+		if (setrlimit(RLIMIT_AS, &lim) == -1) 
+		{
+				printf("rlimit failed\n");
+				return 1;
+		}
+		
+		getrlimit(RLIMIT_AS, &new_lim);
+		printf("new_lim (hard): %ld\n", new_lim.rlim_max);
+		printf("new_lim (soft): %ld\n", new_lim.rlim_cur);
 	}
 	/* phth end */
 		
