@@ -9,46 +9,20 @@
 
 struct kilo {
 	struct kilo *next;	// for a 64 bit computer the pointer size is 8 bytes 
-	// char dummy[1016];
-	char dummy[992];
+	char dummy[1016];
+	// char dummy[992];
 };
 
 int FreeMem(void);
+int LimitMem( int _argc, char *_argv[] );
 
-// int main( void )
 int main( int argc, char *argv[] )
 {
-	/* phth start: */
-	/* explanation: see setrlimit.c */
-	
-	struct rlimit lim = {3 * 1000 * 1000, RLIM_INFINITY};
-	// /* alternatively, using the rlim_cur element of the rlimit structure lim: */
-	// struct rlimit lim;
-	// lim.rlim_cur = 3 * 1000 * 1000;
-	// lim.rlim_max = RLIM_INFINITY;
-	
-	struct rlimit old_lim, new_lim;
-
-	if (argc > 1 && argv[1][0] == '-' && argv[1][1]=='l') 
+	if (LimitMem( argc, argv ) != 0)
 	{
-		printf("limiting virtual mem size\n");
-		
-		getrlimit(RLIMIT_AS, &old_lim);
-		printf("old_lim (hard): %ld\n", old_lim.rlim_max);
-		printf("old_lim (soft): %ld\n", old_lim.rlim_cur);
-		
-		if (setrlimit(RLIMIT_AS, &lim) == -1) 
-		{
-				printf("rlimit failed\n");
-				return 1;
-		}
-		
-		getrlimit(RLIMIT_AS, &new_lim);
-		printf("new_lim (hard): %ld\n", new_lim.rlim_max);
-		printf("new_lim (soft): %ld\n", new_lim.rlim_cur);
+		printf("LimitMem() failed.\n");
+		return 1;
 	}
-	/* phth end */
-		
 	printf("You have %d kilobytes free.\n", FreeMem());
 	return 0;
 }
@@ -95,3 +69,42 @@ int FreeMem(void)
 	
 	return counter;
 }
+
+/* phth start: */
+int LimitMem( int _argc, char *_argv[] )
+{
+	/**
+	 * @brief explanation: see setrlimit.c
+	 * 
+	 */
+	
+	struct rlimit lim = {3 * 1024 * 1024, RLIM_INFINITY};
+	// /* alternatively, using the rlim_cur element of the rlimit structure lim: */
+	// struct rlimit lim;
+	// lim.rlim_cur = 3 * 1000 * 1000;
+	// lim.rlim_max = RLIM_INFINITY;
+	
+	struct rlimit old_lim, new_lim;
+
+	if (_argc > 1 && _argv[1][0] == '-' && _argv[1][1]=='l') 
+	{
+		printf("limiting data segment size\n");
+		
+		getrlimit(RLIMIT_DATA, &old_lim);
+		printf("old_lim (hard): %ld Bytes\n", old_lim.rlim_max);
+		printf("old_lim (soft): %ld Bytes\n", old_lim.rlim_cur);
+		
+		if (setrlimit(RLIMIT_DATA, &lim) == -1) 
+		{
+			printf("rlimit failed\n");
+			return 1;
+		}
+		
+		getrlimit(RLIMIT_DATA, &new_lim);
+		printf("new_lim (hard): %ld Bytes\n", new_lim.rlim_max);
+		printf("new_lim (soft): %ld Bytes\n", new_lim.rlim_cur);
+	}
+
+	return 0;
+}
+/* phth end */

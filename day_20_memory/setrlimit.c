@@ -22,7 +22,10 @@ int main(int argc, char *argv[]) {
 
         if (argc > 1 && argv[1][0] == '-' && argv[1][1]=='l') {
                 printf("limiting stack size\n");
-                if (setrlimit(RLIMIT_STACK, &lim) == -1) {      // RLIMIT_STACK: stack; RLIMIT_DATA: heap; RLIMIT_AS: Virtual Memory
+                if (setrlimit(RLIMIT_STACK, &lim) == -1) {      // RLIMIT_STACK: stack; 
+                                                                // RLIMIT_DATA: data segment (initialized data, uninitialized data, and heap); 
+                                                                // RLIMIT_AS: Virtual Memory (aka Address Space) -> (therefore, "_AS")
+                                                                // see: https://linux.die.net/man/2/setrlimit
                         printf("rlimit failed\n");
                         return 1;
                 }
