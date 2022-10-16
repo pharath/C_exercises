@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* For BLOCKSIZE 3000000: */
+/* use "ulimit -Sd 4000" to make the 1st allocation succeed and the 2nd allocation fail ! */
 #define BLOCKSIZE 3000000
 
 int main( void )

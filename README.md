@@ -53,11 +53,11 @@
     - void pointer: pointer arithmetic (void_ptr_arith.c)
     - void pointer: most common use of void pointers (void_ptr_most_common_use.c)
   - check available memory using `malloc()` (avail_mem_malloc.c)
+    - limiting the stack size, data segment size, address space size using `setrlimit()` (setrlimit.c)
   - check available memory using `calloc()` (calloc.c)
   - using `realloc()` to increase the size of a block of dynamically allocated memory (realloc.c)
   - releasing memory with the `free()` Function (free.c)
   - manipulating memory blocks `memset()`, `memcpy()`, `memmove()` (memset_cpy_move.c)
-  - (setrlimit.c)
 
 ## References
 

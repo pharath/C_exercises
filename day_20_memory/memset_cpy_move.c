@@ -19,7 +19,7 @@ int main( void )
     printf("\n\nOriginal message: %s", temp);
     
     /* Some implementations of memcpy might still work for 
-    overlapping inputs but you cannot count of that 
+    overlapping inputs but you cannot count on that 
     behaviour (i.e. undefined behaviour when overlapping). 
     While memmove must allow for overlapping.
     (https://stackoverflow.com/questions/4415910/memcpy-vs-memmove) */

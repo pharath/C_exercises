@@ -4,13 +4,18 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
+// a block/node in a linked list
 struct test_struct
 {
     int val;
     struct test_struct *next;
 };
 
+// The "head" pointer always points to the first node.
+// If the entire list is empty (contains no nodes), the head pointer is set to NULL
 struct test_struct *head = NULL;
+// Similarly there is a "curr" pointer that points to the last node in the list.
+// Since "curr" points to the last node, curr->next must always be NULL!
 struct test_struct *curr = NULL;
 
 struct test_struct* create_list(int val)
@@ -42,18 +47,17 @@ struct test_struct* add_to_list(int val, bool add_to_end)
     else
         printf("\n Adding node to beginning of list with value [%d]\n",val);
 
-    // create a node of type test_struct 
-    // ptr points to this node and lets us access the node's elements
+    // Create a node (of type test_struct) (which involves 1.-3.):
+    // 1. allocate memory for the new node (ptr points to this node and lets us access the node's elements)
     struct test_struct *ptr = (struct test_struct*)malloc(sizeof(struct test_struct));
     if(NULL == ptr)
     {
         printf("\n Node creation failed \n");
         return NULL;
     }
-    // assign the val passed to add_to_list() to the new node's member variable val
+    // 2. assign the val passed to add_to_list() to the new node's member variable val
     ptr->val = val;
-    // The node's next pointer is assigned the address of next node. If no next node 
-    // exists (or if its the last node) a NULL is assigned.
+    // 3. The node's next pointer is assigned the address of the next node. If no next node exists (or if its the last node) a NULL is assigned.
     ptr->next = NULL;
 
     // add the created node to the list
