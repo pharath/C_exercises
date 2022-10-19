@@ -76,11 +76,17 @@ struct test_struct* add_to_list(int val, bool add_to_end)
     return ptr;
 }
 
-// *prev is "passed by reference using pointers", d.h. wir können das 
-// original *prev aus delete_from_list hier 
-// in search_in_list ändern und die Änderung bleibt nach
-// Rückkehr zu delete_from_list erhalten! (s. "passing_by_reference.c")
-struct test_struct* search_in_list(int val, struct test_struct **prev)
+/**
+ * @brief Search the list for a specific element.
+ * 
+ * @param val the value of the node to be found
+ * @param prev a pointer to the node previous to the found node
+ * @return struct test_struct* pointer to the found element or NULL, if not found
+ */
+struct test_struct* search_in_list(int val, struct test_struct **prev)      // *prev (nicht prev !) is "passed by reference using pointers", d.h. 
+                                                                            // wir können das original *prev aus delete_from_list hier 
+                                                                            // in search_in_list ändern und die Änderung bleibt nach
+                                                                            // Rückkehr zu delete_from_list erhalten! (s. "passing_by_reference.c")
 {
     struct test_struct *ptr = head;
     struct test_struct *tmp = NULL;
@@ -88,6 +94,7 @@ struct test_struct* search_in_list(int val, struct test_struct **prev)
 
     printf("\n Searching the list for value [%d] \n",val);
 
+    // traverse the linked list to match the node containing "val"
     while(ptr != NULL)
     {
         if(ptr->val == val)
@@ -97,15 +104,16 @@ struct test_struct* search_in_list(int val, struct test_struct **prev)
         }
         else
         {
-            tmp = ptr;
+            tmp = ptr;          // we need tmp to be able to return the previous node in the following
             ptr = ptr->next;
         }
     }
 
+    // return a pointer to the found node
     if(true == found)
     {
         if(prev)
-            *prev = tmp;
+            *prev = tmp;        // also return the previous node, if there is one
         return ptr;
     }
     else
@@ -114,32 +122,38 @@ struct test_struct* search_in_list(int val, struct test_struct **prev)
     }
 }
 
+/**
+ * @brief deletes a node in the linked list
+ * 
+ * @param val the value of the node being deleted
+ * @return int 0, if deletion was successful; -1, if node with value "val" not found.
+ */
 int delete_from_list(int val)
 {
-    struct test_struct *prev = NULL;
-    struct test_struct *del = NULL;
+    struct test_struct *prev = NULL;    // pointer to the adjacent node before the node being deleted (thus, NULL for head node)
+    struct test_struct *del = NULL;     // node being deleted
 
     printf("\n Deleting value [%d] from list\n",val);
 
-    del = search_in_list(val,&prev);
+    del = search_in_list(val,&prev);    // "&prev" als argument heißt "prev" ist ein "zweiter return Wert" von search_in_list() (vgl. passing_by_reference.c)
     if(del == NULL)
     {
         return -1;
     }
     else
     {
-        if(prev != NULL)
-            prev->next = del->next;
+        if(prev != NULL)                // when deleting any node except the first node
+            prev->next = del->next;     // set the next pointer of the element before the one being deleted to point to the element after the one being deleted
 
-	// The FIRST NODE is always made accessible through a global "head" pointer. This pointer is adjusted when first node is deleted.
-	// Similarly there is a "curr" pointer that contains the LAST NODE in the list. This is also adjusted when last node is deleted.
+        // "[...] there is a "curr" pointer that contains the LAST NODE in the list. This is also adjusted when last node is deleted."
         if(del == curr)
         {
-            curr = prev;
+            curr = prev;                // delete last node
         }
+        // "The FIRST NODE is always made accessible through a global "head" pointer. This pointer is adjusted when first node is deleted."
         else if(del == head)
         {
-            head = del->next;
+            head = del->next;           // delete first node
         }
     }
 
@@ -202,7 +216,7 @@ int main(void)
         }
         else
         {
-            printf("\n delete [val = %d]  passed \n",i);
+            printf("\n delete [val = %d] passed \n",i);
         }
 
         print_list();
