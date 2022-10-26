@@ -46,6 +46,8 @@
     - summary of most important time functions (all_time_functions.c)
   - Pseudo-random numbers
     - Usage of `rand()` function (rand.c)
+  - Error-Handling
+    - checking `argv[]` (printf_argv1.c)
 - Day 20 - Memory, Promotion, Casts
   - Casting Pointers
     - void pointer: cast before dereferencing (implicit_conv_void_pointer.c)
